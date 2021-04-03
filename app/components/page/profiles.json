@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_page_profiles",
+  "info": {
+    "name": "profiles",
+    "icon": "user-graduate"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "role": {
+      "type": "enumeration",
+      "enum": [
+        "Instrutor",
+        "Designer"
+      ],
+      "required": true
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

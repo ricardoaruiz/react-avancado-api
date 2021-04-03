@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_page_concept_items",
+  "info": {
+    "name": "conceptItems",
+    "icon": "list-ol"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
