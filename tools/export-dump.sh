@@ -1,2 +1,1 @@
-# docker exec -t your-db-container pg_dumpa -c -U postgres > dump_`date +%d-%m-%Y"_"%H_%M_%S`.sql
-docker exec -t react-avancado-api_postgres_1 pg_dump -c -U strapi > dump_`date +%d-%m-%Y"_"%H_%M_%S`.sql
+PGPASSWORD=strapi pg_dump -Fc --no-acl --no-owner -h localhost -U strapi strapi > strapi.dump
