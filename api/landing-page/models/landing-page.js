@@ -22,16 +22,14 @@ const deployVercel = () => {
 }
 
 module.exports = {
-  async afterCreate(_, __) {
-    netlifyWebhook && axios.post(netlifyWebhook)
-    vercelWebhook && axios.post(vercelWebhook)
-    // deployNetlify()
-    // deployVercel()
-  },
-  async afterUpdate(_, __, ___) {
-    netlifyWebhook && axios.post(netlifyWebhook)
-    vercelWebhook && axios.post(vercelWebhook)
-    // deployNetlify()
-    // deployVercel()
-  },
+  lifecycles: {
+    async afterCreate(_, __) {
+      deployNetlify()
+      deployVercel()
+    },
+    async afterUpdate(_, __, ___) {
+      deployNetlify()
+      deployVercel()
+    },
+  }
 };
