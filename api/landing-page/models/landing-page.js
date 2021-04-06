@@ -23,10 +23,12 @@ const deployVercel = () => {
 
 module.exports = {
   async afterCreate(_, __) {
+    console.log('afterCreate', netlifyWebhook, vercelWebhook)
     deployNetlify()
     deployVercel()
   },
   async afterUpdate(_, __, ___) {
+    console.log('afterUpdate', netlifyWebhook, vercelWebhook)
     deployNetlify()
     deployVercel()
   },
