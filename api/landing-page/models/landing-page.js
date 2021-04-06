@@ -5,4 +5,29 @@
  * to customize this model
  */
 
-module.exports = {};
+const axios = require('axios')
+const netlifyWebhook = strapi.config.get('custom.netlifyWebhook')
+const vercelWebhook = strapi.config.get('custom.vercelWebhook')
+
+const deployNetlify = () => {
+  if (netlifyWebhook) {
+    axios.post(netlifyWebhook)
+  }
+}
+
+const deployVercel = () => {
+  if (vercelWebhook) {
+    axios.post(vercelWebhook)
+  }
+}
+
+module.exports = {
+  async afterCreate(_, __) {
+    deployNetlify()
+    deployVercel()
+  },
+  async afterUpdate(_, __, ___) {
+    deployNetlify()
+    deployVercel()
+  },
+};
